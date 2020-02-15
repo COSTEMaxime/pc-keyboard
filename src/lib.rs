@@ -522,15 +522,19 @@ impl KeyEvent {
 
 impl Modifiers {
     pub fn is_shifted(&self) -> bool {
-        (self.lshift | self.rshift)
+        self.lshift | self.rshift
     }
 
     pub fn is_ctrl(&self) -> bool {
-        (self.lctrl | self.rctrl)
+        self.lctrl | self.rctrl
     }
 
     pub fn is_caps(&self) -> bool {
         (self.lshift | self.rshift) ^ self.capslock
+    }
+
+    pub fn is_altgr(&self) -> bool {
+        self.alt_gr
     }
 }
 
